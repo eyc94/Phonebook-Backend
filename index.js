@@ -73,6 +73,7 @@ app.post("/api/persons", (request, response) => {
     }
 
     // Duplicate name. Implement later.
+
     // if (persons.filter(p => p.name === body.name).length > 0) {
     //     return response.status(400).json({
     //         error: "Name must be unique"
