@@ -44,6 +44,7 @@ app.get("/api/persons", (request, response) => {
 });
 
 app.get("/info", (request, response) => {
+
     response.send(`
         <p>Phonebook has info for ${persons.length} people</p>
         <p>${Date()}</p>
@@ -78,14 +79,6 @@ app.post("/api/persons", (request, response) => {
             error: "Missing name or number"
         });
     }
-
-    // Duplicate name. Implement later.
-
-    // if (persons.filter(p => p.name === body.name).length > 0) {
-    //     return response.status(400).json({
-    //         error: "Name must be unique"
-    //     });
-    // }
 
     const person = new Person({
         name: body.name,
