@@ -44,11 +44,14 @@ app.get("/api/persons", (request, response) => {
 });
 
 app.get("/info", (request, response) => {
-
-    response.send(`
-        <p>Phonebook has info for ${persons.length} people</p>
-        <p>${Date()}</p>
-    `);
+    Person.countDocuments()
+        .then(result => {
+            const message = `
+                <p>Phonebook has info for ${result} people</p>
+                <p>${Date()}</p>
+            `;
+            response.send(message);
+        });
 });
 
 app.get("/api/persons/:id", (request, response, next) => {
