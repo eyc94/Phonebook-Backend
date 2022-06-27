@@ -43,7 +43,7 @@ app.get("/api/persons", (request, response) => {
     });
 });
 
-app.get("/info", (request, response) => {
+app.get("/info", (request, response, next) => {
     Person.countDocuments()
         .then(result => {
             const message = `
@@ -51,7 +51,8 @@ app.get("/info", (request, response) => {
                 <p>${Date()}</p>
             `;
             response.send(message);
-        });
+        })
+        .catch(error => next(error));
 });
 
 app.get("/api/persons/:id", (request, response, next) => {
