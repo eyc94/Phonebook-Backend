@@ -20,7 +20,7 @@ const Person = mongoose.model("Person", personSchema);
 
 mongoose
     .connect(url)
-    .then((result) => {
+    .then(() => {
         if (process.argv.length === 3) {
             console.log("Phonebook:");
             Person.find({}).then(result => {
