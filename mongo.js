@@ -1,3 +1,5 @@
+// This is a test file for Mongo/Mongoose.
+
 const mongoose = require("mongoose");
 
 if (process.argv.length < 3) {
