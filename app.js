@@ -31,6 +31,6 @@ app.use(morgan(":method :url :status :res[content-length] - :response-time ms :d
 app.use("/api/persons", personsRouter);
 
 app.use(middleware.unknownEndpoint);
-app.use(middelware.errorHandler);
+app.use(middleware.errorHandler);
 
 module.exports = app;
